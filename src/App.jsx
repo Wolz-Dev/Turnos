@@ -1,45 +1,43 @@
 import { useState, useEffect } from "react";
 import "./index.css";
-import Header from "./components/Header";
-import Formulario from "./components/Formulario";
-import ListadoPacientes from "./components/ListadoPacientes";
+import Form from "./components/Form";
+import ListClients from "./components/ListClients";
 
 function App() {
-  const [pacientes, setPacientes] = useState([]);
-  const [paciente, setPaciente] = useState({});
+  const [clients, setClients] = useState([]);
+  const [client, setClient] = useState({});
 
   useEffect(() => {
-    const obtenerLS = () => {
-      const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? []
-      setPacientes(pacientesLS)
+    const getLS = () => {
+      const clientsLS = JSON.parse(localStorage.getItem('clients')) ?? []
+      setClients(clientsLS)
     }
-    obtenerLS()
+    getLS()
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('pacientes', JSON.stringify(pacientes))
-  }, [pacientes])
+    localStorage.setItem('clients', JSON.stringify(clients))
+  }, [clients])
 
-  const eliminarPaciente = (id) => {
-    const pacientesActualizados = pacientes.filter(paciente => paciente.id !== id)
-    setPacientes(pacientesActualizados)
+  const deleteClient = (id) => {
+    const clientsUpdated = clients.filter(client => client.id !== id)
+    setClients(clientsUpdated)
   }
 
   return (
     <div className="container mx-auto mt-10">
-      <Header />
-      <div className="mr-12 mt-14 md:flex">
-        <Formulario
-          /* variable / modificador */
-          pacientes={pacientes}
-          setPacientes={setPacientes}
-          paciente={paciente}
-          setPaciente={setPaciente}
+      <div className=" mt-14 md:flex">
+        <Form
+          /* var / modificatpr */
+          clients={clients}
+          setClients={setClients}
+          client={client}
+          setClient={setClient}
         />
-        <ListadoPacientes
-          pacientes={pacientes}
-          setPaciente={setPaciente}
-          eliminarPaciente={eliminarPaciente}
+        <ListClients
+          clients={clients}
+          setClient={setClient}
+          deleteClient={deleteClient}
         />
       </div>
     </div>
