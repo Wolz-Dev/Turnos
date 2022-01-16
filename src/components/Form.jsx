@@ -164,7 +164,7 @@ const Form = ({ clients, setClients, client, setClient }) => {
                 <input
                     type="submit"
                     className="bg-indigo-700 w-full p-3 text-white uppercase font-bold hover:bg-indigo-600 cursor-pointer transition-all"
-                    value={client.id ? 'Editar cliente' : 'Agregar cliente'}
+                    value={client.id ? 'Editar cliente' : 'Agendar cliente'}
                 />
             </form>
         </div>
