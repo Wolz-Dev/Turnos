@@ -5,7 +5,7 @@ const Client = ({ client, setClient, deleteClient }) => {
     const { name, service, telephone, date, hour, id } = client;
 
     const handleDelete = () => {
-        const res = confirm('Deseas delete este cliente?')
+        const res = confirm('Deseas borrar este cliente?')
 
         if (res) {
             deleteClient(id)
