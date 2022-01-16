@@ -135,7 +135,7 @@ const Form = ({ clients, setClients, client, setClient }) => {
                         htmlFor="alta"
                         className="block text-gray-700 uppercase font-bold"
                     >
-                        Turno
+                        Fecha Turno
                     </label>
                     <input
                         id="alta"
